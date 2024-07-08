@@ -2,7 +2,7 @@ import React from "react";
 import "./NavBar.css";
 
 function CartWidget() {
-  const countItemCart = 10;
+  const countItemCart = 5;
   return (
     <div className="carrito m-3">
       <ul className="ul-cart">
