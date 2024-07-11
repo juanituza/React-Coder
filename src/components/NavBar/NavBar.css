@@ -12,6 +12,13 @@
   outline: none;
   transition: 0.5s;
   justify-content: space-around;
+  /* background-color: transparent !important; */
+  /* visibility: hidden;  */
+  /* display: none;  */
+
+}
+.cartWidget{
+  background-color: transparent !important;
 }
 ul {
   list-style-type: none;

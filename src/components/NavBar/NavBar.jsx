@@ -9,7 +9,7 @@ const NavBar = () => {
 
   return (
     <nav className='navbar mb-5'>
-      <img className="logo-img" src="../../../public/banner.jpg" alt="banner mk rock" />
+      <img className="logo-img" src="/banner.jpg" alt="banner mk rock" />
       <ul>
         <li>Guitaras</li>
         <li>Nosotros</li>
