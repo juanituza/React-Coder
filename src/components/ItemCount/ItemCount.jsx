@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import CardProduct from "./CardProduct";
 
 function ItemCount({ stock, initial, onAdd }) {
-  const [contador, setContador] = useState(Number(initial));
+  const [contador, setContador] = useState(initial);
   
   
-  useEffect( () => {
-  }, [] )
+  // useEffect( () => {
+  // }, [] )
   
   const aumentarContador = () => {
-    if (contador >= initial && contador < stock) {
+    if (contador < stock) {
       setContador(contador + 1);
     }
   };
@@ -29,14 +29,23 @@ function ItemCount({ stock, initial, onAdd }) {
 
   return (
     <div className="row mt-5 body">
-      <CardProduct
-        contador={contador}
-        aumentarContador={aumentarContador}
-        descontarContador={descontarContador}
-        onAdd={handleAdd}
-        // stock={Number(stock)}
-      />
-      
+        <div className="d-flex align-items-center">
+        <button className="btn btn-outline-dark" onClick={descontarContador}>
+          -
+        </button>
+        <span className="input-group-text number">{contador}</span>
+        <button className="btn btn-outline-dark" onClick={aumentarContador}>
+          +
+        </button>
+      </div>
+
+      <button
+        className="btn btn-outline-warning mt-2 boton"
+        onClick={handleAdd}
+        // disabled={contador === 0 || contador > stock}
+      >
+        Agregar al carrito
+      </button>
     </div>
   );
 }
