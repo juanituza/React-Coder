@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="body">
       <NavBar />
-      <ItemListContainer saludo="Bienvenido a la tienda MK ROCK" />
+      <ItemListContainer saludo="Bienvenido a la tienda MK BUY" />
       {/* <ItemCount stock={5} initial={1} onAdd={addToCart} /> */}
     </div>
   );

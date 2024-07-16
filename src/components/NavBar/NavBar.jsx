@@ -8,13 +8,13 @@ const NavBar = () => {
 
 
   return (
-    <nav className='navbar mb-5'>
-      <img className="logo-img" src="/banner.jpg" alt="banner mk rock" />
-      <ul>
-        <li>Guitaras</li>
+    <nav className="navbar mb-5">
+      <img className="logo-img col-3 mb-3 ms-0" src="/banner.jpg" alt="banner mk rock" />
+      <ul className="text-center col-3">
+        <li>Productos</li>
         <li>Nosotros</li>
       </ul>
-      <CartWidget />
+      <CartWidget className="col-4"/>
     </nav>
   );
 }

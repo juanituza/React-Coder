@@ -4,7 +4,7 @@ import "./NavBar.css";
 
 function CartWidget() {
   const countItemCart = 5;
-
+  
 
   return (
     <div className="carrito m-3 ">

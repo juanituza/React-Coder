@@ -5,10 +5,22 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  width: 500px;
+  
 }
 
 .card-custom .card-title {
   color: #333333;
   font-size: 2rem;
   text-align: center;
+  font-family: "Arsenal SC", sans-serif;
+  font-weight: 500;
+  font-style: normal; 
+  
+}
+.fw-black{
+  font-family: "Arsenal SC", sans-serif;
+}
+.fw-bold{
+
 }
