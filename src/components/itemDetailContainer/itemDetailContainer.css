@@ -1,0 +1,17 @@
+
+
+.img-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-container {
+  padding: 20px;
+  margin: 20px 0;
+  /* border: 1px solid #ccc; */
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.card-container:hover {
+  transform: scale(1.05);
+}

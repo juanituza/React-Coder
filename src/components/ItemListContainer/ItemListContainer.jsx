@@ -3,11 +3,13 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import obtenerProductos from "../../data/MOCK_DATA1.js";
 import ItemList  from './ItemList';
+import ItemDetailContainer from '../../components/itemDetailContainer/ItemDetailContainer'
 import './itemListContainer.css';
 
 function ItemListContainer({ saludo }) {
   const [productos, setProductos] = useState ([]);
   const [carrito, setCarrito] = useState([]);
+  const [selectedProductId, setSelectedProductId] = useState(null);
 
   function addToCart(item) {
     const itemExist = carrito.findIndex((producto) => producto.id === item.id)
@@ -32,13 +34,24 @@ useEffect(() => {
     });
 }, [])
 
+const handleItemClick = (id) => {
+  setSelectedProductId(id);
+};
 
 
 
   return (
     <div className="container">
-      <div className="row justify-content-center">
-        
+      {selectedProductId ? (
+        <ItemDetailContainer
+          productoId={selectedProductId}
+          productos={productos}
+          carrito={carrito}
+          setCarrito={setCarrito}
+          addToCart={addToCart}
+        />
+      ) : (
+        <div className="row justify-content-center">
           <div className="row card text-bg-primary mb-3 card-custom justify-content-center">
             <h1 className="m-3 text-center card-title text-bg-primary ">
               {saludo}
@@ -50,10 +63,11 @@ useEffect(() => {
               carrito={carrito}
               setCarrito={setCarrito}
               addToCart={addToCart}
+              onItemClicked={handleItemClick}
             />
           </div>
         </div>
-      
+      )}
     </div>
   );
 }
