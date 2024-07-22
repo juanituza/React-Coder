@@ -3,7 +3,7 @@ import "./itemDetailContainer.css";
 import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetail = ({product, producto, addToCart}) => {
-
+  // const { id, name, imagen, description, price, stock } = producto;
   return (
     <>
     <div className="my-4 row align-items-center d-flex card-container">
@@ -22,7 +22,7 @@ const ItemDetail = ({product, producto, addToCart}) => {
         <ItemCount
           stock={product.stock}
           initial={1}
-          producto={producto}
+          // producto={producto}
           addToCart={addToCart}
         />
       </div>

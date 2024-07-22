@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from "react";
-import obtenerProductos from "../../data/MOCK_DATA1";
-import ItemCount from "../ItemCount/ItemCount";
 import "./itemDetailContainer.css";
 import ItemDetail from "./ItemDetail";
 
-const ItemDetailContainer = ({
-  productos,
-  producto,
-  addToCart,
-  productoId,
-}) => {
+const ItemDetailContainer = ({ productos, addToCart, productoId }) => {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
@@ -21,7 +14,7 @@ const ItemDetailContainer = ({
 
   return (
     <>
-      <ItemDetail product={product} addToCart={addToCart} producto={producto} />
+      <ItemDetail product={product} addToCart={addToCart} />
     </>
   );
 };

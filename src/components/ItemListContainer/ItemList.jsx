@@ -1,8 +1,11 @@
 import React from 'react'
 
 import Item from './Item';
+import useFetch from '../../hooks/useFetch';
 
 const ItemList = ({ productos, setCarrito, addToCart, onItemClicked }) => {
+  // const {productos} = useFetch() ;
+  // console.log(productos);
   return (
     <div className="row">
       {productos.map((producto) => (
