@@ -7,6 +7,7 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 import "./itemListContainer.css";
 import useFetch from "../../hooks/useFetch.jsx";
 
+
 function ItemListContainer({ saludo }) {
   const { productos, cargando } = useFetch();
   const [carrito, setCarrito] = useState([]);
@@ -65,5 +66,6 @@ function ItemListContainer({ saludo }) {
     </div>
   );
 }
+
 
 export default ItemListContainer;

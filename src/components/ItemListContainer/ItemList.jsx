@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Item from './Item';
+import hocSeachBar from '../HOCS/hocSeachBar';
 import useFetch from '../../hooks/useFetch';
 
 const ItemList = ({ productos, setCarrito, addToCart, onItemClicked }) => {
@@ -21,4 +22,8 @@ const ItemList = ({ productos, setCarrito, addToCart, onItemClicked }) => {
   );
 };
 
-export default ItemList
+// export default ItemList;
+
+const ItemListConHoc = hocSeachBar(ItemList);
+
+export default ItemListConHoc;

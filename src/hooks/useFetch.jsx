@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import obtenerProductos from "../data//MOCK_DATA1.js";
+import obtenerProductos from "../data/db.js";
 import useLoading from "./useLoading";
 
 const useFetch = () => {
@@ -8,7 +8,6 @@ const useFetch = () => {
 
   useEffect(() => {
     mostrarCargando();
-
     obtenerProductos()
       .then((respuesta) => {
         setProductos(respuesta);

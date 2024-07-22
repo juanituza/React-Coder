@@ -3,7 +3,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import CartWidget from "../NavBar/CartWidget";
 
 const Item = ({ producto, addToCart, onItemClicked }) => {
-  const { id, name, imagen, description, price,stock } = producto;
+  const { id, title, image, description, price,stock } = producto;
 
   return (
     <>
@@ -11,12 +11,12 @@ const Item = ({ producto, addToCart, onItemClicked }) => {
         <div className="col-4" onClick={() => onItemClicked(id)}>
           <img
             className="img-fluid"
-            src={`/imagenes/${imagen}.jpg`}
-            alt="imagen guitarra"
+            src={image}
+            alt="imagen"
           />
         </div>
         <div className="col-8" onClick={() => onItemClicked(id)}>
-          <h3 className="text-black fs-4 fw-bold text-uppercase">{name}</h3>
+          <h3 className="text-black fs-4 fw-bold text-uppercase">{title}</h3>
           <p className="fw-black">{description}</p>
           <p className="fw-black text-primary fs-3">${price}</p>
         </div>
