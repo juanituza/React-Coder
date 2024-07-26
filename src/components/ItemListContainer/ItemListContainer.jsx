@@ -1,8 +1,6 @@
 // ItemListContainer.jsx
 import React from "react";
-import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-// import ItemDetailContainer from "../../components/itemDetailContainer/ItemDetailContainer";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import "./itemListContainer.css";
 import useFetch from "../../hooks/useFetch.jsx";

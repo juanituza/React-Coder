@@ -18,16 +18,17 @@ const ItemDetail = ({product}) => {
           <p className="fw-black">{product.description}</p>
           <p className="fw-black">{product.category}</p>
           <p className="fw-black text-primary fs-3">${product.price}</p>
-          <ItemCount
-            stock={product.stock}
-            initial={1}
-            // producto={producto}
-            // addToCart={addToCart}
-          />
+          <ItemCount stock={product.stock} initial={1} />
         </div>
-        <Link to="/" className="btn btn-primary col-3 ms-4">
+        <div >
+
+        <Link
+          to="/"
+          className="btn btn-primary col-3 ms-4 justify-content-center"
+          >
           Back
         </Link>
+          </div>
       </div>
     </>
   );

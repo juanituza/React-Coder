@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import ItemCount from '../ItemCount/ItemCount';
-import CartWidget from "../NavBar/CartWidget";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const Item = ({ producto}) => {
@@ -22,7 +20,6 @@ const Item = ({ producto}) => {
         
         >
           <h3 className="text-black fs-4 fw-bold text-uppercase">{title}</h3>
-          {/* <p className="fw-black">{description}</p> */}
           <p className="fw-black text-primary fs-3">${price}</p>
           <Link to={`/detalle/${id}`} className="btn btn-primary">Detail</Link>
         </div>

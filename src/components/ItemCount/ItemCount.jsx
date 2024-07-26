@@ -1,14 +1,8 @@
 import { useState, useEffect } from "react";
-import CardProduct from "./CardProduct";
 
-function ItemCount({ stock, initial, producto, addToCart }) {
+
+function ItemCount({ stock, initial}) {
   const [contador, setContador] = useState(initial);
-
-  // const addToCart = () => {
-
-  // };
-  // useEffect( () => {
-  // }, [] )
 
   const aumentarContador = () => {
     if (contador < stock) {
@@ -18,12 +12,6 @@ function ItemCount({ stock, initial, producto, addToCart }) {
   const descontarContador = () => {
     if (contador > initial) {
       setContador(contador - 1);
-    }
-  };
-
-  const handleAdd = () => {
-    if (contador >= 0) {
-      onAdd(contador);
     }
   };
 
@@ -41,9 +29,6 @@ function ItemCount({ stock, initial, producto, addToCart }) {
 
       <button
         className="btn btn-outline-primary mt-2 boton"
-        onClick={() => addToCart(producto)}
-        // onClick={() => setCarrito((prevCart) => [...prevCart, producto])}
-        // disabled={contador === 0 || contador > stock}
       >
         Add to cart
       </button>
