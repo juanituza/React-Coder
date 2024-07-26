@@ -2,29 +2,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import ItemDetailContainer from "../../components/itemDetailContainer/ItemDetailContainer";
+// import ItemDetailContainer from "../../components/itemDetailContainer/ItemDetailContainer";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import "./itemListContainer.css";
 import useFetch from "../../hooks/useFetch.jsx";
-
+import { Link } from "react-router-dom";
 
 function ItemListContainer({ saludo }) {
   const { productos, cargando } = useFetch();
-  const [carrito, setCarrito] = useState([]);
-  const [selectedProductId, setSelectedProductId] = useState(null);
 
-  function addToCart(item) {
-    const itemExist = carrito.findIndex((producto) => producto.id === item.id);
-    if (itemExist < 0) {
-      setCarrito((prevCart) => [...prevCart, item]);
-    } else {
-      console.log("elemento existe");
-    }
-  }
 
-  const handleItemClick = (id) => {
-    setSelectedProductId(id);
-  };
 
   return (
     <div className="container">
@@ -37,35 +24,23 @@ function ItemListContainer({ saludo }) {
             margin={2}
           />
         </div>
-      ) : selectedProductId ? (
-        <ItemDetailContainer
-          productoId={selectedProductId}
-          productos={productos}
-          carrito={carrito}
-          setCarrito={setCarrito}
-          addToCart={addToCart}
-        />
       ) : (
         <div className="row justify-content-center">
-          <div className="row card text-bg-primary mb-3 card-custom justify-content-center">
-            <h1 className="m-3 text-center card-title text-bg-primary">
-              {saludo}
+          <Link
+            to="/"
+            className="row card card-title mb-3 card-custom justify-content-center"
+          >
+            <h1 className="m-3 text-center card-title ">
+              <p className="card-text">{saludo}</p>
             </h1>
-          </div>
+          </Link>
           <div className="row">
-            <ItemList
-              productos={productos}
-              carrito={carrito}
-              setCarrito={setCarrito}
-              addToCart={addToCart}
-              onItemClicked={handleItemClick}
-            />
+            <ItemList productos={productos} />
           </div>
         </div>
       )}
     </div>
   );
 }
-
 
 export default ItemListContainer;

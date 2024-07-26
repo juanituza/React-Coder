@@ -12,6 +12,3 @@
   transition: transform 0.2s;
 }
 
-.card-container:hover {
-  transform: scale(1.05);
-}

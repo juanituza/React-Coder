@@ -1,4 +1,5 @@
 /* itemListContainer.css */
+
 .card-custom {
   /* background-color: #eea300 !important; Fondo específico para este componente */
   border: 1px solid #ccc;
@@ -16,8 +17,20 @@
   font-family: "Arsenal SC", sans-serif;
   font-weight: 500;
   font-style: normal; 
+  text-decoration: none;
   
 }
 .fw-black{
   font-family: "Arsenal SC", sans-serif;
+}
+.card-title{
+  background-color: #050C9C;
+  color:aliceblue;
+  text-decoration: none;
+}
+.card-text{
+  /* background-color: #050C9C; */
+  color:aliceblue;
+  /* text-decoration: none; */
+  
 }

@@ -45,7 +45,7 @@ function ItemCount({ stock, initial, producto, addToCart }) {
         // onClick={() => setCarrito((prevCart) => [...prevCart, producto])}
         // disabled={contador === 0 || contador > stock}
       >
-        Agregar al carrito
+        Add to cart
       </button>
     </div>
   );

@@ -2,21 +2,14 @@
   width: 100%;
   height: 100%;
   display: flex;
+  align-items: center;
   position: relative;
-  margin-right: 25px;
-  padding: 45px 0 0 0;
+  justify-content: space-around;
   font-family: "Arsenal SC", sans-serif;
   font-size: 19px;
-  font-weight: 500;
-  /* color: var(--light) !important; */
   outline: none;
-  transition: 0.5s;
-  justify-content: space-around;
-  /* background-color: #777777; */
-  
-  /* visibility: hidden;  */
-  /* display: none;  */
-
+  font-weight: 500;
+  background-color: #201E43;
 }
 .cartWidget{
   background-color: transparent !important;
@@ -31,7 +24,7 @@ ul {
 li {
   margin-right: 20px;
   font-style: italic;
-  color: #0D6EFD;
+  color: #050C9C;
 }
 .logo-img {
   border-radius: 15px;
@@ -39,23 +32,116 @@ li {
   width: 200px;
   
 }
-.carrito .fas {
-  font-size: 20px;
-  color: #0D6EFD;
+.ul-cart {
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  
+  width: 150px;
+  border-radius: 5px;
+  color: aliceblue;
+  background-color: #0D6EFD;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.carrito .fas:hover {
-  font-size: 20px;
-  color: #000000;
+.ul-cart:hover{
+  background-color: #050C9C;
 }
-.carrito .text {
-  font-size: 20px;
-  color: #0D6EFD;
+.card-body{
+  align-items: center;
 }
-.carrito .text:hover {
+.carrito {
+  align-items: center;
+  justify-content: center;
+  padding:50px
+}
+.text {
   font-size: 20px;
-  color: #000000;
+  color: aliceblue;
+}
+.li-cart {
+  /* width: 100%; */
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  /* padding: 10px; */
+
+  color: aliceblue;
 }
 
-.li-cart {
-  margin: 3px;
+
+
+/* NavBar.css */
+
+
+.logo-img {
+  border-radius: 15px;
+  width: 200px;
+  height: auto; /* Asegúrate de que la imagen mantenga su proporción */
+}
+
+.cartWidget {
+  background-color: transparent !important;
+}
+
+ul.categories {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px; /* Ajusta el espacio entre las categorías */
+  scale: 0.80;
+}
+
+li.category {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  border-radius: 5px; */
+  color: aliceblue;
+  /* background-color: #050C9C; */
+  /* padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  text-decoration: none;
+}
+
+.linkcategory{
+    color: aliceblue;
+    text-decoration: none;
+     display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  border-radius: 5px;
+  color: aliceblue;
+  background-color: #050C9C;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.category p {
+  margin: 0;
+  padding: 10px;
+}
+
+.img-category {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.img-category svg {
+  width: 40px;
+  height: 40px;
+  color: aliceblue;
+}
+
+.linkcategory:hover{
+  background-color: #0D6EFD;
 }
