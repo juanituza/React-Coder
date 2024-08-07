@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 
-function ItemCount({ stock, initial}) {
+function ItemCount({ stock, initial, agregarAlCarrito }) {
   const [contador, setContador] = useState(initial);
 
   const aumentarContador = () => {
@@ -29,6 +29,7 @@ function ItemCount({ stock, initial}) {
 
       <button
         className="btn btn-outline-primary mt-2 boton"
+        onClick={() => agregarAlCarrito(contador)}
       >
         Add to cart
       </button>
