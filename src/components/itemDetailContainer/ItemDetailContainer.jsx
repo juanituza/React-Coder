@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from "react";
-import "./itemDetailContainer.css";
-import ItemDetail from "./ItemDetail";
+import React from "react";
 import PacmanLoader from "react-spinners/PacmanLoader";
+
+import ItemDetail from "./ItemDetail";
 import useFetch from "../../hooks/useFetch.jsx";
-import { useParams } from "react-router-dom";
+
+import "./itemDetailContainer.css";
+
 
 const ItemDetailContainer = () => {
-  const { productos, cargando } = useFetch();
-  const [product, setProduct] = useState({});
-  const { productoId } = useParams();
- 
-  useEffect(() => {
-    
-    if (productos.length > 0) {
-      const productoEncontrado = productos.find(
-        (producto) => producto.id === Number(productoId)
-      );
-      setProduct(productoEncontrado);
-    }
-  }, [productos, productoId]);
+  const { cargando, product } = useFetch();
 
   return (
     <>

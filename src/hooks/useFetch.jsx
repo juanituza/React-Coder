@@ -1,14 +1,24 @@
 import { useState, useEffect } from "react";
-// import obtenerProductos from "../data/db.js";
+import { useNavigate, useParams } from "react-router-dom";
+
+
+import db from "../db/dataBase.js";
 import useLoading from "./useLoading";
-import { useParams } from "react-router-dom";
-import { getDocs , collection, query, where } from "firebase/firestore"
-import db from "../db/dataBase.js"
+import {
+  getDocs,
+  collection,
+  query,
+  where,
+  getDoc,
+  doc,
+} from "firebase/firestore";
 
 const useFetch = () => {
   const [productos, setProductos] = useState([]);
+  const [product, setProduct] = useState({});
   const { cargando, mostrarCargando, ocultarCargando } = useLoading();
-  const { idCategoria } = useParams();
+  const { idCategoria, productoId } = useParams();
+  const navigate = useNavigate();
 
   const getProducts = async () => {
     try {
@@ -23,63 +33,62 @@ const useFetch = () => {
     } finally {
       ocultarCargando(); // Ocultar carga una vez que se obtienen los productos
     }
-  }
+  };
 
   const getProductsByCategory = async () => {
     try {
-      const productosRef = collection(db, "productos");
-      const q = query(productosRef, where("category", "==", idCategoria));
+      if (idCategoria) {
+        const productosRef = collection(db, "productos");
+        const q = query(productosRef, where("category", "==", idCategoria));
 
-      const dataDb = await getDocs(q);
+        const dataDb = await getDocs(q);
 
-      const data = dataDb.docs.map((productDb) => {
-        return { id: productDb.id, ...productDb.data() };
-      });
+        const data = dataDb.docs.map((productDb) => {
+          return { id: productDb.id, ...productDb.data() };
+        });
 
-      setProductos(data);
+        setProductos(data);
+      }
     } catch (error) {
       console.error("Error al obtener productos:", error);
     } finally {
       ocultarCargando(); // Ocultar carga una vez que se obtienen los productos
     }
-  }
-
+  };
   useEffect(() => {
     mostrarCargando();
     if (idCategoria) {
       getProductsByCategory();
-    }else{
+    } else {
       getProducts();
     }
   }, [idCategoria]);
 
+  const getProduct = async () => {
+    try {
+      if (productoId) {
+        const docRef = doc(db, "productos", productoId);
+        const dataDb = await getDoc(docRef);
+        const data = { id: dataDb.id, ...dataDb.data() };
 
-  
-  // useEffect(() => {
-    // mostrarCargando();
-    
-    // obtenerProductos()
-    //   .then((respuesta) => {
-    //     if (idCategoria) {
-    
-    //       const productosFiltrados = respuesta.filter(
-    //         (producto) => producto.category === idCategoria
-    //       );
+         if (dataDb.exists()) {
+           const data = { id: dataDb.id, ...dataDb.data() };
+           setProduct(data);
+         } else {
+           // Si el producto no existe, redirigir a la página de error
+           navigate("/error");
+         }
+      }
+    } catch (error) {
+      console.error("Error al obtener el producto:", error);
+    }
+  };
 
-    //       setProductos(productosFiltrados);
-    //     } else {
-    //       setProductos(respuesta);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   })
-    //   .finally(() => {
-    //     ocultarCargando();
-    //   });
-  // }, [idCategoria]);
-  
-  return { productos, cargando };
+  useEffect(() => {
+    getProduct();
+  }, []);
+
+  return { productos, cargando, product };
 };
 
 export default useFetch;

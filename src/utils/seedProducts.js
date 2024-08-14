@@ -1,4 +1,9 @@
-export const productos = [
+import { addDoc, collection } from "firebase/firestore";
+import db from "../db/dataBase.js";
+
+
+
+const productos = [
   {
     id: 1,
     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -206,12 +211,17 @@ export const productos = [
     stock: 9,
   },
 ];
-const obtenerProductos = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(productos);
-    }, 1000);
-  });
-};
 
-export default obtenerProductos;
+
+const seedProducts = () => {
+    productos.map( ( {id , ...rest} ) => {
+        const productosRef = collection(db , "productos");
+        addDoc(productosRef, rest);
+        
+    })
+    console.log("productos subidos correctamente");
+    
+}
+seedProducts();
+
+

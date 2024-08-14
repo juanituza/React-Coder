@@ -1,15 +1,15 @@
 // ItemListContainer.jsx
 import React from "react";
-import ItemList from "./ItemList";
-import PacmanLoader from "react-spinners/PacmanLoader";
-import "./itemListContainer.css";
-import useFetch from "../../hooks/useFetch.jsx";
 import { Link } from "react-router-dom";
+import PacmanLoader from "react-spinners/PacmanLoader";
+
+import useFetch from "../../hooks/useFetch.jsx";
+import ItemList from "./ItemList";
+
+import "./itemListContainer.css";
 
 function ItemListContainer({ saludo }) {
   const { productos, cargando } = useFetch();
-
-
 
   return (
     <div className="container">

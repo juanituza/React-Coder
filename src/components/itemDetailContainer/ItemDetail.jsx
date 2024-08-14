@@ -1,18 +1,29 @@
-import React from 'react'
-import "./itemDetailContainer.css";
-import ItemCount from '../ItemCount/ItemCount'
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { useContext } from 'react';
-import { CartContext } from '../../context/CartContext';
 
-const ItemDetail = ({product}) => {
+import { CartContext } from "../../context/CartContext";
+import ItemCount from "../ItemCount/ItemCount";
+
+import Swal from "sweetalert2";
+
+import "./itemDetailContainer.css";
+
+const ItemDetail = ({ product }) => {
   const { agregarProducto } = useContext(CartContext);
 
-  const agregarAlCarrito = (contador) => {
-    const productoCarrito = {...product , cantidad: contador}
+  const agregarAlCarrito = async (contador) => {
+    const productoCarrito = { ...product, cantidad: contador };
     agregarProducto(productoCarrito);
-  }
-  
+    await Swal.fire({
+      // position: "top-center",
+      icon: "success",
+      title: "Producto agregado",
+      text: `El prodcuto ${productoCarrito.title} se agregó al carrito `,
+      showConfirmButton: false,
+      timer: 3000,
+    });
+  };
+
   return (
     <>
       <div className="my-4 row align-items-center d-flex card-container">
@@ -45,4 +56,4 @@ const ItemDetail = ({product}) => {
   );
 };
 
-export default ItemDetail
+export default ItemDetail;
